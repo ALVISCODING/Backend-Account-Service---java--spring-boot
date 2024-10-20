@@ -21,12 +21,6 @@ The goal of this project is to create a robust API structure that allows employe
 
 ## Getting Started
 
-### Project Structure
-
-The project structure is organized as follows:
-
-src ├── main │ ├── java │ │ └── com │ │ └── yourpackage │ │ ├── controller │ │ ├── dto │ │ ├── entity │ │ ├── repository │ │ └── security │ └── resources │ ├── application.properties │ └── keystore └── test └── java └── com └── yourpackage
-
 ### Prerequisites
 
 - Java 17+
@@ -47,6 +41,15 @@ src ├── main │ ├── java │ │ └── com │ │ └── yo
 
 - Ensure you have [Java JDK 17](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html) or higher installed.
 - You should have [Gradle](https://gradle.org/install/) installed for dependency management.
+
+## Adjusting Application Properties
+
+You can customize the application settings in the `src/main/resources/application.properties` file. Key properties include:
+
+- **Server Port**: `server.port=28852`
+- **H2 Database**: `spring.datasource.url=jdbc:h2:file:../service_db`
+- **JPA Settings**: `spring.jpa.hibernate.ddl-auto=update`
+- **Logging Levels**: `logging.level.org.springframework=INFO`
 
 ### H2 Database Console
 

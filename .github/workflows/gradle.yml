@@ -1,0 +1,41 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle   use this as template as fill those int
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:3.1.0" // Spring Boot version
+        classpath "io.spring.gradle:dependency-management-plugin:1.1.0" // Dependency Management version
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets.main.resources.srcDirs = ["src/resources"]
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.h2database:h2'
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.0.Final'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+}
+
+test {
+    jvmArgs '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
+}
+
